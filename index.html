@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GAIA ★今後の活動予定★</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f0fdf4; /* Very light green */
+        }
+        .event-card {
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            cursor: pointer; /* クリック可能であることを示すカーソル */
+        }
+        .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        }
+        .status-badge {
+            display: inline-block;
+            font-size: 0.875rem; /* 14px */
+            font-weight: 600;
+            padding: 0.25rem 0.75rem; /* py-1 px-3 */
+            border-radius: 9999px; /* rounded-full */
+            margin-top: 0.75rem; /* mt-3 */
+        }
+        .status-yellow { background-color: #fef9c3; color: #ca8a04; }
+        .status-red { background-color: #fee2e2; color: #dc2626; }
+        .status-green { background-color: #dcfce7; color: #16a34a; }
+        .status-blue { background-color: #dbeafe; color: #2563eb; } /* For '確認中' */
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <div class="container mx-auto p-4 sm:p-6 md:p-8 max-w-4xl">
+
+        <!-- 今後の活動予定 -->
+        <main>
+            <h2 class="text-2xl font-bold text-center mb-8 text-green-700">📅 これからのイベントカレンダー</h2>
+
+            <div class="space-y-8">
+                <!-- 10月 -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-4 text-amber-600 border-l-4 border-amber-500 pl-3">10月</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- SDGs EXPO -->
+                        <div class="event-card bg-white rounded-xl shadow-md p-6 border-l-8 border-amber-400" data-title="SDGs AICHI EXPO 2025" data-start-date="2025-10-02" data-end-date="2025-10-04">
+                            <div class="flex items-start space-x-4">
+                                <div class="text-5xl">🌏</div>
+                                <div>
+                                    <p class="text-xl font-bold text-amber-800">SDGs AICHI EXPO 2025</p>
+                                    <p class="text-lg font-semibold text-gray-700 mt-1">10/2(木)準備, 3(金), 4(土)</p>
+                                    <a href="https://sdgs-aichi.com" target="_blank" class="text-sm text-blue-500 hover:underline" onclick="event.stopPropagation()">公式サイトはこちら</a>
+                                    <div class="status-badge status-yellow">🟡募集中🟡</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 食事会 -->
+                        <div class="event-card bg-white rounded-xl shadow-md p-6 border-l-8 border-amber-400" data-title="EXPO後の食事会" data-start-date="2025-10-04">
+                            <div class="flex items-start space-x-4">
+                                <div class="text-5xl">🍽️</div>
+                                <div>
+                                    <p class="text-xl font-bold text-amber-800">EXPO後の食事会</p>
+                                    <p class="text-lg font-semibold text-gray-700 mt-1">10月4日（土）活動後</p>
+                                    <div class="status-badge status-yellow">🟡募集中🟡</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 生き物調査 -->
+                        <div class="event-card bg-white rounded-xl shadow-md p-6 border-l-8 border-amber-400" data-title="東三河ふるさと公園生き物調査" data-start-date="2025-10-26">
+                            <div class="flex items-start space-x-4">
+                                <div class="text-5xl">🦋</div>
+                                <div>
+                                    <p class="text-xl font-bold text-amber-800">東三河ふるさと公園生き物調査</p>
+                                    <p class="text-lg font-semibold text-gray-700 mt-1">10月26日（日）</p>
+                                    <p class="text-sm text-gray-500 mt-2">担当：因藤さん</p>
+                                    <div class="status-badge status-yellow">🟡募集中🟡</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 地域共生イベント -->
+                        <div class="event-card bg-white rounded-xl shadow-md p-6 border-l-8 border-amber-400" data-title="トヨタ車体 地域共生イベント" data-start-date="2025-10-26">
+                            <div class="flex items-start space-x-4">
+                                <div class="text-5xl">🤝</div>
+                                <div>
+                                    <p class="text-xl font-bold text-amber-800">トヨタ車体 地域共生イベント</p>
+                                    <p class="text-lg font-semibold text-gray-700 mt-1">10月26日（日）</p>
+                                    <div class="status-badge status-blue">🔵確認中？🔵</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 11月 -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-4 text-sky-600 border-l-4 border-sky-500 pl-3">11月</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- 植栽活動 -->
+                        <div class="event-card bg-white rounded-xl shadow-md p-6 border-l-8 border-sky-400" data-title="尾張北部植栽活動" data-start-date="2025-11-15">
+                             <div class="flex items-start space-x-4">
+                                <div class="text-5xl">🌱</div>
+                                <div>
+                                    <p class="text-xl font-bold text-sky-800">尾張北部植栽活動</p>
+                                    <p class="text-lg font-semibold text-gray-700 mt-1">11月15日（土）</p>
+                                    <p class="text-sm text-gray-500 mt-2">担当：三治蒼さん</p>
+                                    <div class="status-badge status-green">🟢募集前🟢</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ふれあいフェス -->
+                        <div class="event-card bg-white rounded-xl shadow-md p-6 border-l-8 border-sky-400" data-title="【自主活動】ふれあいフェス" data-start-date="2025-11-16">
+                             <div class="flex items-start space-x-4">
+                                <div class="text-5xl">🎉</div>
+                                <div>
+                                    <p class="text-xl font-bold text-sky-800">【自主活動】ふれあいフェス</p>
+                                    <p class="text-lg font-semibold text-gray-700 mt-1">11月16日(日)</p>
+                                    <p class="text-sm text-gray-500 mt-2">場所：トヨタ車体</p>
+                                    <div class="status-badge status-green">🟢募集前🟢</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 加藤建設 -->
+                        <div class="event-card bg-white rounded-xl shadow-md p-6 border-l-8 border-sky-400 md:col-span-2" data-title="尾張西部地域 加藤建設" data-start-date="2025-11-22">
+                             <div class="flex items-start space-x-4">
+                                <div class="text-5xl">🏗️</div>
+                                <div>
+                                    <p class="text-xl font-bold text-sky-800">尾張西部地域 加藤建設</p>
+                                    <p class="text-lg font-semibold text-gray-700 mt-1">11月22日(土)</p>
+                                    <p class="text-sm text-gray-500 mt-2">担当：三治 蒼さん</p>
+                                    <div class="status-badge status-green">🟢募集前🟢</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 12月 -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-4 text-teal-600 border-l-4 border-teal-500 pl-3">12月</h3>
+                     <div class="grid grid-cols-1 md:grid-cols-1 gap-6">
+                        <div class="event-card bg-white rounded-xl shadow-md p-6 border-l-8 border-teal-400" data-title="渥美半島 亀の子隊 西の浜クリーンアップ" data-start-date="2025-12-06">
+                            <div class="flex items-start space-x-4">
+                                <div class="text-5xl">🐢</div>
+                                <div>
+                                    <p class="text-xl font-bold text-teal-800">渥美半島 亀の子隊 西の浜クリーンアップ</p>
+                                    <p class="text-lg font-semibold text-gray-700 mt-1">12月6日（土）</p>
+                                    <p class="text-sm text-gray-500 mt-2">担当：伊藤響さん</p>
+                                    <div class="status-badge status-green">🟢募集前🟢</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- 完了した活動 -->
+        <footer class="mt-12 pt-8 border-t-2 border-dashed border-gray-300">
+             <h2 class="text-2xl font-bold text-center mb-6 text-gray-600">✔️ 完了した活動</h2>
+             <div class="bg-gray-100 p-6 rounded-lg text-center">
+                <p class="font-semibold text-gray-700">ご参加・ご協力ありがとうございました！</p>
+                <ul class="mt-3 text-gray-600 list-disc list-inside inline-block text-left">
+                    <li><span class="font-semibold">9/28(日)</span> 東部丘陵地域 海上の森の会稲刈り <span class="text-sm">(担当:鈴木さん)</span></li>
+                    <li><span class="font-semibold">9/24(水)・25(木)</span> 西三河地域 トヨタ車体 外来駆除活動 <span class="text-sm">(担当:片田さん)</span></li>
+                </ul>
+             </div>
+        </footer>
+    </div>
+
+    <!-- Calendar Registration Modal -->
+    <div id="calendar-modal" class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full hidden z-50">
+        <div class="relative top-20 mx-auto p-5 border w-11/12 max-w-sm shadow-lg rounded-md bg-white">
+            <div class="mt-3 text-center">
+                <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100">
+                    <svg class="h-6 w-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                </div>
+                <h3 class="text-lg leading-6 font-medium text-gray-900 mt-2">カレンダーに登録</h3>
+                <div class="mt-2 px-7 py-3">
+                    <p id="modal-event-title" class="text-base text-gray-700"></p>
+                </div>
+                <div class="items-center px-4 py-3 space-x-4">
+                    <button id="modal-confirm-btn" class="px-4 py-2 bg-green-500 text-white text-base font-medium rounded-md w-auto shadow-sm hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-300">
+                        はい
+                    </button>
+                    <button id="modal-cancel-btn" class="px-4 py-2 bg-gray-300 text-gray-800 text-base font-medium rounded-md w-auto shadow-sm hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-300">
+                        いいえ
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const eventCards = document.querySelectorAll('.event-card');
+            const modal = document.getElementById('calendar-modal');
+            const modalTitle = document.getElementById('modal-event-title');
+            const confirmBtn = document.getElementById('modal-confirm-btn');
+            const cancelBtn = document.getElementById('modal-cancel-btn');
+
+            let currentCalendarUrl = '';
+
+            function showModal(title, url) {
+                modalTitle.textContent = `「${title}」をカレンダーに登録しますか？`;
+                currentCalendarUrl = url;
+                modal.classList.remove('hidden');
+            }
+
+            function hideModal() {
+                modal.classList.add('hidden');
+                currentCalendarUrl = '';
+            }
+
+            eventCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    const title = card.dataset.title;
+                    const startDateStr = card.dataset.startDate;
+                    const endDateStr = card.dataset.endDate || startDateStr;
+
+                    if (!title || !startDateStr) {
+                        console.error('Event title or start date is missing from data attributes.');
+                        return;
+                    }
+
+                    const calendarTitle = `【GAIA】${title}`;
+                    const startDate = new Date(startDateStr);
+                    const endDate = new Date(endDateStr);
+                    
+                    endDate.setDate(endDate.getDate() + 1);
+
+                    const formatDate = (date) => {
+                        return date.toISOString().split('T')[0].replace(/-/g, '');
+                    };
+
+                    const formattedStartDate = formatDate(startDate);
+                    const formattedEndDate = formatDate(endDate);
+                    
+                    const googleCalendarUrl = `https://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(calendarTitle)}&dates=${formattedStartDate}/${formattedEndDate}`;
+
+                    showModal(title, googleCalendarUrl);
+                });
+            });
+
+            confirmBtn.addEventListener('click', () => {
+                if (currentCalendarUrl) {
+                    window.open(currentCalendarUrl, '_blank');
+                }
+                hideModal();
+            });
+
+            cancelBtn.addEventListener('click', hideModal);
+
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    hideModal();
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
+
+

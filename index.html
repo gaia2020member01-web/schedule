@@ -202,17 +202,56 @@
             const confirmBtn = document.getElementById('modal-confirm-btn');
             const cancelBtn = document.getElementById('modal-cancel-btn');
 
-            let currentCalendarUrl = '';
+            let currentEventData = null;
 
-            function showModal(title, url) {
+            // .icsファイルを生成してダウンロードする関数
+            function downloadIcsFile(eventData) {
+                const { title, startDate, endDate } = eventData;
+                
+                const formatDate = (date) => date.toISOString().replace(/-/g, '').replace(/:/g, '').split('.')[0] + 'Z';
+                const formatAllDay = (date) => date.toISOString().split('T')[0].replace(/-/g, '');
+
+                const startDateAllDay = formatAllDay(startDate);
+                
+                const tempEndDate = new Date(endDate);
+                tempEndDate.setDate(tempEndDate.getDate() + 1);
+                const endDateAllDay = formatAllDay(tempEndDate);
+
+                // iCalendar(.ics)ファイルのコンテンツを作成
+                const icsContent = [
+                    'BEGIN:VCALENDAR',
+                    'VERSION:2.0',
+                    'PRODID:-//GAIA//Event Calendar//EN',
+                    'BEGIN:VEVENT',
+                    `UID:${startDateAllDay}-${Math.random().toString(36).substr(2, 9)}@gaia.com`,
+                    `DTSTAMP:${formatDate(new Date())}`,
+                    `DTSTART;VALUE=DATE:${startDateAllDay}`,
+                    `DTEND;VALUE=DATE:${endDateAllDay}`,
+                    `SUMMARY:【GAIA】${title}`,
+                    'END:VEVENT',
+                    'END:VCALENDAR'
+                ].join('\r\n');
+
+                const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `${title}.ics`;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            }
+
+            function showModal(title, eventData) {
                 modalTitle.textContent = `「${title}」をカレンダーに登録しますか？`;
-                currentCalendarUrl = url;
+                currentEventData = eventData;
                 modal.classList.remove('hidden');
             }
 
             function hideModal() {
                 modal.classList.add('hidden');
-                currentCalendarUrl = '';
+                currentEventData = null;
             }
 
             eventCards.forEach(card => {
@@ -225,29 +264,20 @@
                         console.error('Event title or start date is missing from data attributes.');
                         return;
                     }
-
-                    const calendarTitle = `【GAIA】${title}`;
-                    const startDate = new Date(startDateStr);
-                    const endDate = new Date(endDateStr);
                     
-                    endDate.setDate(endDate.getDate() + 1);
-
-                    const formatDate = (date) => {
-                        return date.toISOString().split('T')[0].replace(/-/g, '');
+                    const eventData = {
+                        title: title,
+                        startDate: new Date(startDateStr),
+                        endDate: new Date(endDateStr)
                     };
 
-                    const formattedStartDate = formatDate(startDate);
-                    const formattedEndDate = formatDate(endDate);
-                    
-                    const googleCalendarUrl = `https://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(calendarTitle)}&dates=${formattedStartDate}/${formattedEndDate}`;
-
-                    showModal(title, googleCalendarUrl);
+                    showModal(title, eventData);
                 });
             });
 
             confirmBtn.addEventListener('click', () => {
-                if (currentCalendarUrl) {
-                    window.open(currentCalendarUrl, '_blank');
+                if (currentEventData) {
+                    downloadIcsFile(currentEventData);
                 }
                 hideModal();
             });
